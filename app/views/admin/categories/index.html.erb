@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 mx-auto">
+      <div class="card my-5 shadow">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h3>Listing All Categories</h3>
+            </div>
+            <div class="col-md-1 text-right">
+              <%= link_to new_admin_category_path, class: "btn btn-outline-success", toggle: 'tooltip', placement: 'top', title: 'New Category' do %>
+                <i class='fa fa-plus-circle' aria-hidden='true'></i>
+                <span>New</span>
+              <% end %>
+            </div>
+          </div>
+          <% if @categories.present? %>
+            <table class="table">
+              <thead class="thead-light">
+                <tr>
+                  <th>Name</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @categories.each do |category| %>
+                  <tr>
+                    <td><%= category.name %></td>  
+                    <td>
+                      <%= link_to admin_category_path(category.id), method: :get, class: "btn btn-outline-warning", toggle: 'tooltip', placement: 'top', title: 'Show category' do %>
+                        <i class='bi bi-eye-fill' aria-hidden='true'></i>
+                      <% end %>
+                      <%= link_to edit_admin_category_path(category.id), class: "btn btn-outline-success", toggle: 'tooltip', placement: 'top', title: 'Edit category' do %>
+                        <i class='bi bi-pencil-fill' aria-hidden='true'></i>
+                      <% end %>
+                      <%= link_to admin_category_path(category.id), method: :delete , data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "btn btn-outline-danger", toggle: 'tooltip', placement: 'top', title: 'Destroy category' do %>
+                        <i class='bi bi-trash3-fill' aria-hidden='true'></i>
+                      <% end %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+            <div class="pagination justify-content-center">
+              <%= paginate @categories, theme: 'bootstrap-5', pagination_class: "pagination-sm", nav_class: "d-inline-b" %>
+            </div>
+          <% else %>
+            <h3>No categories available</h3>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

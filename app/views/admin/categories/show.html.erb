@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row-center">
+    <div class="col">
+      <div class="card my-3 shadow">
+        <div class="card-body">
+          <div class="row">
+            <div class="col"> 
+              <h3> Category Details </h3>
+            </div>
+            <div class="col-md-1 text-right">
+              <div class="col-md-12 text-right">
+                <%= link_to admin_categories_path, class: "btn btn-outline-primary", toggle: 'tooltip', placement: 'top', title: 'Back' do %>
+                  <i class='fa fa-arrow-left' aria-hidden='true'></i>
+                  <span>Back</span>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <dl class="row">
+            <dt class="col-sm-3">
+              Category name:
+            </dt>
+            <dd class="col-sm-9">
+              <%= @category.name %>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
