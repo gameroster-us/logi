@@ -75,3 +75,5 @@ end
 gem 'cssbundling-rails'
 gem 'devise'
 gem 'ancestry'
+gem 'kaminari'
+gem 'bootstrap5-kaminari-views'
