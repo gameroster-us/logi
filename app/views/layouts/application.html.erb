@@ -11,9 +11,16 @@
   </head>
 
   <body>
-    <header>
-      <%= render 'shared/header' %>
-    </header>
+    <%= render 'shared/header' %>
+
+    <% if notice %>
+      <div class="alert alert-success" role="alert">
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close">
+        </button>
+        <%= notice %>
+      </div>
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>
