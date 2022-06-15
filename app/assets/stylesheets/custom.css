@@ -1,0 +1,21 @@
+.devise-section {
+  padding-top: 75px !important;
+}
+
+.elements-section {
+  padding-top: 75px !important;
+}
+
+.elements-section-show {
+  padding-top: 135px !important;
+}
+
+.thead-light-modifier {
+  background-color: #fff !important;
+}
+
+.text-nowrap-product {
+  word-wrap: break-word !important;
+  min-width: 250px !important;
+  max-width: 250px !important;
+}
