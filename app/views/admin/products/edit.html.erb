@@ -1,43 +1,44 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-9 col-md-7 col-lg mx-auto">
-      <div class="card my-5 shadow">
-        <div class="card-body">
-          <div class="row">
-            <div class="col">
-              <h3>Edit Product</h3>
-            </div>
-            <div class="col-md-1 text-right">
-              <%= link_to admin_products_path, class: "btn btn-outline-primary", toggle: 'tooltip', placement: 'top', title: 'Back' do %>
-                <i class='fa fa-arrow-left' aria-hidden='true'></i>
-                <span>Back</span>
-              <% end %>
-            </div>
-            <%= form_for @product, :url => {:controller => 'admin/products',:action => 'update'} do |f| %>
-              <% if @product.errors.any? %>
-                <div id="error_explanation">
-                  <div class="alert alert-danger">
-                    The form contains <%= pluralize(@product.errors.count, "error") %>.
+<section class="elements-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg mx-auto">
+        <div class="card my-5 shadow">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h3>Edit Product</h3>
+              </div>
+              <div class="col-md-1 text-right">
+                <%= link_to admin_products_path, class: "btn btn-outline-primary", toggle: 'tooltip', placement: 'top', title: 'Back' do %>
+                  <i class='fa fa-arrow-left' aria-hidden='true'></i>
+                <% end %>
+              </div>
+              <%= form_for @product, :url => {:controller => 'admin/products',:action => 'update'} do |f| %>
+                <% if @product.errors.any? %>
+                  <div id="error_explanation">
+                    <div class="alert alert-danger">
+                      The form contains <%= pluralize(@product.errors.count, "error") %>.
+                    </div>
+                    <ul>
+                    <% @product.errors.full_messages.each do |msg| %>
+                      <li><%= msg %></li>
+                    <% end %>
+                    </ul>
                   </div>
-                  <ul>
-                  <% @product.errors.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
-                  <% end %>
-                  </ul>
-                </div>
+                <% end %>
+                <%= render 'form', :f => f %>
+                <div class="row justify-content-end">  
+                  <div class="col-md-2">
+                    <%= link_to "Cancel", admin_products_path, class: "btn btn-lg btn-outline-danger btn-block", toggle: 'tooltip', placement: 'top', title: 'Cancel' %>
+                  </div>
+                  <div class="col-md-2">
+                    <%= f.submit "Update", class: "btn btn-lg btn-outline-primary btn-block", toggle: 'tooltip', placement: 'top', title: 'Update' %>
+                  </div>
+                </div><br/>
               <% end %>
-              <%= render 'form', :f => f %>
-              <div class="row justify-content-end">  
-                <div class="col-md-2">
-                  <%= link_to "Cancel", admin_products_path, class: "btn btn-lg btn-outline-danger btn-block", toggle: 'tooltip', placement: 'top', title: 'Cancel' %>
-                </div>
-                <div class="col-md-2">
-                  <%= f.submit "Update", class: "btn btn-lg btn-outline-primary btn-block", toggle: 'tooltip', placement: 'top', title: 'Update' %>
-                </div>
-              </div><br/>
-            <% end %>
-          </div>
+            </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</section>
