@@ -1,0 +1,15 @@
+development: 
+  cloud_name: "logicalstreet"
+  api_key: "798568867757828"
+  api_secret: "YnmgvoLiMASwSRkQh-NbbM000Z0"
+  secure: true
+  enhance_image_tag: true
+  static_file_support: false
+
+production:
+  cloud_name: "logicalstreet"
+  api_key: "798568867757828"
+  api_secret: "YnmgvoLiMASwSRkQh-NbbM000Z0"
+  secure: true
+  enhance_image_tag: true
+  static_file_support: false
