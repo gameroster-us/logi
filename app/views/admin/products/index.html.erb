@@ -20,6 +20,7 @@
                   <tr>
                     <th>Name</th>
                     <th>Description</th>
+                    <th>Product Image</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
@@ -29,6 +30,11 @@
                       <td><%= product.name %></td> 
                       <td class="text-nowrap-product">
                         <%= product.description %>
+                      </td>
+                      <td> 
+                        <% if product.image.attached? %>
+                          <%= image_tag product.image, :size => "250x150" %>
+                        <% end %>
                       </td>
                       <td>
                         <%= link_to admin_product_path(product.id), method: :get, class: "btn btn-outline-warning", toggle: 'tooltip', placement: 'top', title: 'Show product' do %>

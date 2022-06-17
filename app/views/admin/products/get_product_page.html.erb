@@ -1,0 +1,27 @@
+<div class="content">
+  <div class="sub_box">
+    <div class="wrap">
+      <div class="col text-center"><br/> <br/>
+        <h3>Products</h3>
+      </div><br />
+        <div class="ProductA">
+          <div class="pr_box">
+            <ul class="clearfix">
+              <% Product.all.each do | product | %>
+                <li>
+                  <%= link_to admin_product_path(:id => product.id), :name => product.name do %>
+                    <% if product.image.attached? %>
+                      <div class="pr_img">
+                        <%= image_tag(product.image, :alt => product.name, :style => "margin-left: auto;margin-right: auto;", class: 'card-impr_imgg-top') %>
+                      </div>
+                    <% end %>
+                  <% end %>
+                  <h6><%= product.name %></h6>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

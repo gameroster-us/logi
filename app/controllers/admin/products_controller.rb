@@ -1,5 +1,5 @@
 class Admin::ProductsController < ApplicationController
-  before_action :authenticate_admin!
+  before_action :authenticate_admin!, except: [:get_product_page, :show]
 
   def index
     @products = Product.all.page(params[:page]).per(15)
@@ -41,9 +41,13 @@ class Admin::ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def get_product_page
+    @products = Product.all
+  end
+
   private
 
   def product_params
-    params.require(:product).permit(:name, :description)
+    params.require(:product).permit(:name, :description, :image)
   end
 end

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "admin/admins#index"
+  get 'admin/products/get_product_page'
   namespace :admin do
     resources :admins
     resources :products

@@ -10,8 +10,14 @@
               </div>
               <div class="col-md-1 text-right">
                 <div class="col-md-12 text-right">
-                  <%= link_to admin_products_path, class: "btn btn-outline-primary", toggle: 'tooltip', placement: 'top', title: 'Back' do %>
-                    <i class='fa fa-arrow-left' aria-hidden='true'></i>
+                  <% if admin_signed_in? %>
+                    <%= link_to admin_products_path, class: "btn btn-outline-primary", toggle: 'tooltip', placement: 'top', title: 'Back' do %>
+                      <i class='fa fa-arrow-left' aria-hidden='true'></i>
+                    <% end %>
+                  <% else %>
+                    <%= link_to admin_products_get_product_page_path, class: "btn btn-outline-primary", toggle: 'tooltip', placement: 'top', title: 'Back' do %>
+                      <i class='fa fa-arrow-left' aria-hidden='true'></i>
+                    <% end %>
                   <% end %>
                 </div>
               </div>
@@ -28,6 +34,14 @@
               </dt>
               <dd class="col-sm-9">
                 <%= @product.description %>
+              </dd>
+              <dt class="col-sm-3">
+                Product image:
+              </dt>
+              <dd class="col-sm-9">
+                <% if @product.image.attached? %>
+                  <%= image_tag @product.image, :size => "500x350" %>
+                <% end %>
               </dd>
             </dl>
           </div>
