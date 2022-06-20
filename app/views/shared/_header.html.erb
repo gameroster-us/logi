@@ -1,47 +1,37 @@
-<section class="header header-fixed-xl">
-  <div class="header-main bg-white">
-    <div class="container">
-      <div class="row">
-        <nav class="navbar navbar-expand-lg navbar-light">
-          <a class="navbar-brand font-weight-bold">
-            <img src="/assets/Logos_ByTailorBrands/logo_white_background.jpg" alt="hero background" class=jarallax-img style="height: 100px; width: 300px;">
-          </a>
-          <div class="container-fluid">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            </ul>
-            <div class="dropdown-right">
-              <ul class="navbar-nav ml-auto mr-4">
-                <% if admin_signed_in? %>
-                  <li class="nav-item dropdown-right">
-                    <%= link_to 'Category', admin_categories_path, class: "nav-link text-dark" %>
-                  </li>
-                  <li class="nav-item dropdown-right">
-                    <%= link_to 'Product', admin_products_path, class: "nav-link text-dark" %>
-                  </li>
-                  <li class="nav-item dropdown-right">
-                    <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Account
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                      <%= link_to "Logout", destroy_admin_session_path, method: :delete, class: "dropdown-item text-primary"%>
-                    </ul>
-                  </li>
-                <% else %>
-                  <li>
-                    <%= link_to 'Product', admin_products_get_product_page_path, class: 'nav-link text-dark' %>
-                  </li>
-                  <li class="nav-item dropdown-right">
-                    <%= link_to 'Login', new_admin_session_path, class: "nav-link text-dark" %>
-                  </li>
-                  <li>
-                    <%= link_to 'Sign Up', new_admin_registration_path, class: "nav-link text-dark" %>
-                  </li>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-        </nav>
+<!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+      <div class="logo me-auto">
+        <h1><a><%= link_to 'Machine', root_path, class: "nav-link scrollto" %></a></h1>
       </div>
+      <nav id="navbar" class="navbar">
+        <ul>        
+          <% if admin_signed_in? %>
+              <li class="nav-item dropdown-right">
+                <%= link_to 'Category', admin_categories_path, class: "nav-link scrollto" %>
+              </li>
+              <li class="nav-item dropdown-right">
+                <%= link_to 'Product', admin_products_path, class: "nav-link scrollto" %>
+              </li>
+              <li class="dropdown"><a href="javascript:void();"><span>Account</span> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                  <li>                
+                    <%= link_to "Logout", destroy_admin_session_path, method: :delete, class: "dropdown-item text-primary"%>
+                  </li>
+                </ul>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to 'Product', admin_products_get_product_page_path, class: 'nav-link scrollto' %>
+              </li>
+              <li class="nav-item dropdown-right">
+                <%= link_to 'Login', new_admin_session_path, class: "nav-link scrollto" %>
+              </li>
+              <li>
+                <%= link_to 'Sign Up', new_admin_registration_path, class: "nav-link scrollto" %>
+              </li>
+            <% end %>
+          </ul>
+      </nav><!-- .navbar -->
     </div>
-  </div>
-</section>
+</header><!-- End Header -->
