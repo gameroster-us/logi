@@ -10,7 +10,7 @@
               </div>
               <div class="col-md-1 text-right">
                 <%= link_to admin_categories_path, class: "btn btn-outline-primary", toggle: 'tooltip', placement: 'top', title: 'Back' do %>
-                  <i class='fa fa-arrow-left' aria-hidden='true'></i>
+                  <i class='bi bi-arrow-left' aria-hidden='true'></i>
                 <% end %>
               </div>
             </div><br>
@@ -29,10 +29,10 @@
               <% end %>
               <%= render 'form', :f => f %>
               <div class="row justify-content-end">  
-                <div class="col-md-2">
+                <div class="col-md-2 activity-button">
                   <%= link_to "Cancel", admin_categories_path, class: "btn btn-lg btn-outline-danger btn-block", toggle: 'tooltip', placement: 'top', title: 'Cancel' %>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-2 activity-button">
                   <%= f.submit "Create", class: "btn btn-lg btn-outline-primary btn-block", toggle: 'tooltip', placement: 'top', title: 'Create' %>
                 </div>
               </div><br/>
