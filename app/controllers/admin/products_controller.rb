@@ -42,7 +42,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def get_product_page
-    @products = Product.all
+    @products = Product.all.page(params[:page]).per(15)
   end
 
   private
