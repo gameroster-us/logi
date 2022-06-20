@@ -1,13 +1,11 @@
-.devise-section {
-  padding-top: 75px !important;
+.ancestry-select {
+  appearance: revert !important;
+  box-sizing: border-box !important;
+  height: 38px !important;
 }
 
-.elements-section {
-  padding-top: 75px !important;
-}
-
-.elements-section-show {
-  padding-top: 135px !important;
+.activity-button {
+  width: 10.666667% !important;
 }
 
 .thead-light-modifier {
