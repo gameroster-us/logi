@@ -1,8 +1,14 @@
 class Admin::ProductsController < ApplicationController
   before_action :authenticate_admin!, except: [:get_product_page, :show]
+  # before_action :categories_list, only:  [:edit , :new]
 
   def index
-    @products = Product.all.page(params[:page]).per(15)
+    @search = params[:name]  
+    if @search.present?
+      @products = Product.where('name ILIKE ?', "%#{params[:name]}%").page(params[:page]).per(15)
+    else
+      @products = Product.all.page(params[:page]).per(15)
+    end
   end
 
   def new
@@ -42,12 +48,21 @@ class Admin::ProductsController < ApplicationController
   end
 
   def get_product_page
-    @products = Product.all.page(params[:page]).per(15)
+    @search = params[:name]  
+    if @search.present?
+      @products = Product.where('name ILIKE ?', "%#{params[:name]}%").page(params[:page]).per(15)
+    else
+      @products = Product.all.page(params[:page]).per(15)
+    end
   end
 
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :image)
+    params.require(:product).permit(:name, :description, :image, :category_id)
   end
+
+  # def categories_list
+  #   @category = Category.all.map {|p| [p.name, p.id]}
+  # end
 end

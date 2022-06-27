@@ -9,10 +9,10 @@
   </div>
   <div class="col-sm-6">
     <div class="input-group-append" >
-      <%= f.label :description, "Product description" %>
+      <%= f.label :categories_list %>
     </div> 
     <div class="input-group-append" >
-      <%= f.text_field :description, class: "form-control", :size => '90' %>
+      <%= f.select(:category_id, options_for_select(category_options_array, selected: f.object.category_id ),{ include_blank: true}, class: 'form-control ancestry-select') %>
     </div>
   </div>
 </div><br/>
@@ -24,6 +24,14 @@
     </div> 
     <div class="input-group-append" >
       <%= f.file_field :image, class: "form-control" %>
+    </div>
+  </div>
+   <div class="col-sm-6">
+    <div class="input-group-append" >
+      <%= f.label :description, "Product description" %>
+    </div> 
+    <div class="input-group-append" >
+      <%= f.text_field :description, class: "form-control", :size => '90' %>
     </div>
   </div>
 </div><br/>

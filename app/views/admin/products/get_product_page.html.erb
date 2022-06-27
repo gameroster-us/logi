@@ -4,6 +4,18 @@
       <div class="col text-center text-uppercase">
         <h3>Products</h3>
       </div><br />
+      <%= form_tag admin_products_get_product_page_path, method: :get do %>
+        <div class="row justify-content-md-center">
+          <div class="col-5 search-text">
+            <%= text_field_tag "name", params[:name], class: "form-control col-md-3 mr-1", placeholder: "Search" %>
+          </div>
+          <div class="col-4 search-product">
+            <%= button_tag 'Serach', class: "btn btn-outline-secondary", toggle: 'tooltip', placement: 'top', title: 'Search Here' do %>
+              <i class="bi bi-search" aria-hidden="true"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %><br />
       <div class="ProductA">
         <div class="pr_box">
           <ul class="clearfix">

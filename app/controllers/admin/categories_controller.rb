@@ -2,7 +2,12 @@ class Admin::CategoriesController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @categories = Category.all.page(params[:page]).per(15)
+    @search = params[:name]
+    if @search.present?
+      @categories = Category.where('name ILIKE ?', "%#{params[:name]}%").page(params[:page]).per(15)
+    else
+      @categories = Category.all.page(params[:page]).per(15)
+    end
   end
   
   def new
